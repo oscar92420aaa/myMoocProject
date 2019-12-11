@@ -21,7 +21,7 @@ if (!isDev) {
   app.get('*', function (req, res) { // ‘*’代表浏览器发出的任何请求
     const appString = ReactSSR.renderToString(serverEntry)
 
-    res.send(template.replace('<app></app>', appString))
+    res.send(template.replace('<!-- app -->', appString))
   })
 } else {
   const devStatic = require('./util/dev.static')
