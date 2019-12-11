@@ -3,7 +3,10 @@ const path = require('path')
 module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public/'
+    // 静态资源文件引用时的路径
+    // /public/app.hash.js 区分是静态请求还是服务请求 区分路由,可以加特殊处理
+    // publicPath: '/public/'
+    publicPath: ''
   },
   module: {
     rules: [
