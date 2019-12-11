@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom'
 // import { AppContainer } from 'react-hot-loader' //react-hot-loader
 import App from './App.jsx'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+// 比对服务端和客户端代码差异，有差异用客户端
+ReactDOM.hydrate(<App />, document.getElementById('root'))
 
 if (module.hot) {
   module.hot.accept('./App.jsx', () => {
