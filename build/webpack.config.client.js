@@ -26,6 +26,7 @@ const config = webpackMerge(baseConfig, {
 
 // 开发模式
 if (isDevelopment) {
+  // 一个entry可以是一个数组，代表数组中文件都会打包到一个文件中
   config.entry = {
     app: [
       'react-hot-loader/patch', // react-hot-loader

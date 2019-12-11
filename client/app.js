@@ -3,15 +3,29 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import { AppContainer } from 'react-hot-loader' //react-hot-loader
+// react-hot-loader AppContainer包裹根结点实际想要渲染的内容
+import { AppContainer } from 'react-hot-loader';
 import App from './App.jsx'
 
 // 比对服务端和客户端代码差异，有差异用客户端
-ReactDOM.hydrate(<App />, document.getElementById('root'))
 
+const root = document.getElementById('root');
+const render = Component => {
+  ReactDOM.hydrate(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    root,
+  )
+}
+
+render(App);
+
+// 这个热更新做的也太垃圾了，这叫什么热更新，不可取
 if (module.hot) {
   module.hot.accept('./App.jsx', () => {
     const NextApp = require('./App.jsx').default  // eslint-disable-line
-    ReactDOM.render(<NextApp />, document.getElementById('root'))
+    // ReactDOM.render(<NextApp />, document.getElementById('root'))
+    render(NextApp);
   })
 }
