@@ -6,11 +6,12 @@ const fs = require('fs')
 const path = require('path')
 
 // 开发时的服务端渲染
+console.log(111)
 const isDev = process.env.NODE_ENV === 'development'
 
 const app = express()
 
-// app.use(favicon(__dirname, '../favicon')) // 更改favicon
+app.use(favicon(path.join(__dirname, '../favicon.ico'))) // 更改favicon
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry').default
