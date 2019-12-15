@@ -5,7 +5,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 // react-hot-loader AppContainer包裹根结点实际想要渲染的内容
 import { AppContainer } from 'react-hot-loader';
-import App from './App.jsx'
+// eslint-disable-next-line import/extensions
+import App from './views/App.jsx'
 
 // 比对服务端和客户端代码差异，有差异用客户端
 
@@ -23,8 +24,8 @@ render(App);
 
 // 这个热更新做的也太垃圾了，这叫什么热更新，不可取
 if (module.hot) {
-  module.hot.accept('./App.jsx', () => {
-    const NextApp = require('./App.jsx').default  // eslint-disable-line
+  module.hot.accept('./views/App.jsx', () => {
+    const NextApp = require('./views/App.jsx').default  // eslint-disable-line
     // ReactDOM.render(<NextApp />, document.getElementById('root'))
     render(NextApp);
   })

@@ -10,14 +10,14 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre', // 强制在babel-loader之前进行eslint检查，如错误不继续执行
-        test: /.(js|jsx)$/,
-        loader: 'eslint-loader',
-        exclude: [
-          path.resolve(__dirname, '../node_modules')
-        ]
-      },
+      // {
+      //   enforce: 'pre', // 强制在babel-loader之前进行eslint检查，如错误不继续执行
+      //   test: /.(js|jsx)$/,
+      //   loader: 'eslint-loader',
+      //   exclude: [
+      //     path.resolve(__dirname, '../node_modules')
+      //   ]
+      // },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader'
