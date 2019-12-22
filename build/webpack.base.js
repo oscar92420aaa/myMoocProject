@@ -8,6 +8,9 @@ module.exports = {
     // '/public'如果写成这样，少了后面的斜杠，url会出错
     publicPath: '/public/'
   },
+  resolve: {
+    extensions: ['.js', '.jsx'] // 声明不需要写后缀名的文件,import时候
+  },
   module: {
     rules: [
       // {

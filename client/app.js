@@ -3,6 +3,8 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
+// react-router包裹住整个app
+import { BrowserRouter } from 'react-router-dom'
 // react-hot-loader AppContainer包裹根结点实际想要渲染的内容
 import { AppContainer } from 'react-hot-loader';
 // eslint-disable-next-line import/extensions
@@ -14,7 +16,9 @@ const root = document.getElementById('root');
 const render = Component => {
   ReactDOM.hydrate(
     <AppContainer>
-      <Component />
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
     </AppContainer>,
     root,
   )
