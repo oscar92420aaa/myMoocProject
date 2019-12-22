@@ -2,6 +2,9 @@
     "presets": [
         "@babel/preset-env",
         "@babel/preset-react", // 支持编译jsx代码
+        "react-app" // mobx
     ],
-    "plugins": ["react-hot-loader/babel"] // react-hot-loader
+    "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }], // mobx
+        "react-hot-loader/babel"] // react-hot-loader
 }
