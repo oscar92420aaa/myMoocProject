@@ -47,6 +47,9 @@ if (isDevelopment) {
     historyApiFallback: {
       index: '/public/index.html'
     },
+    proxy: { // 代理
+      '/api': 'http://localhost:3333'
+    },
     hot: true // react-hot-loader
   }
 }

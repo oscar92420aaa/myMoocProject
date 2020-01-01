@@ -5,7 +5,7 @@ import {
   action,
 } from 'mobx'
 
-export class AppState {
+export default class AppState {
     @observable count = 0
 
     @observable name = 'yangliu'
@@ -18,14 +18,3 @@ export class AppState {
       this.count += 1;
     }
 }
-
-const appState = new AppState();
-
-autorun(() => {
-  console.log(appState.msg);
-})
-
-setInterval(() => {
-  appState.add();
-})
-export default appState;

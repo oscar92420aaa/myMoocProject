@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 // react-hot-loader AppContainer包裹根结点实际想要渲染的内容,一定要放到最外面
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'mobx-react';
-import appState from './store/app.state';
+import AppState from './store/app.state';
 // eslint-disable-next-line import/extensions
 import App from './views/App.jsx'
 
@@ -18,7 +18,7 @@ const root = document.getElementById('root');
 const render = Component => {
   ReactDOM.hydrate(
     <AppContainer>
-      <Provider appState={appState}>
+      <Provider appState={new AppState()}>
         <BrowserRouter>
           <Component />
         </BrowserRouter>

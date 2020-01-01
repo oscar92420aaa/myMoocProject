@@ -1,6 +1,8 @@
 const express = require('express')
 const ReactSSR = require('react-dom/server') // react ssr模块，官方提供
 const favicon = require('serve-favicon')
+const bodyParser = require('body-parser') // cnode api
+const session = require('express-session') // cnode api
 
 const fs = require('fs')
 const path = require('path')
@@ -10,6 +12,23 @@ console.log(111)
 const isDev = process.env.NODE_ENV === 'development'
 
 const app = express()
+
+// parse application/json
+app.use(bodyParser.json());  // cnode api
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));  // cnode api
+
+app.use(session({  // cnode api
+  maxAge: 10*60*1000,
+  name: 'tid', // cookie name
+  resave: false, // 每次请求是否要重新生成cookid id
+  saveUninitialized: false, // 每次请求是否要重新生成cookid id
+  secret: 'react cnode class', // 用这个字符串加密cookie,保证字符串在浏览器cookie没有办法被人解密
+}));
+
+app.use('/api/user', require('./util/hanle.login'))
+app.use('/api', require('./util/proxy'))
 
 app.use(favicon(path.join(__dirname, '../favicon.ico'))) // 更改favicon
 
